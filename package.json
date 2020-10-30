@@ -1,8 +1,21 @@
 {
   "name": "app",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "main": "server/server.js",
+  "engines": {
+    "node": "12.18.3",
+    "npm": "6.14.6"
+  },
   "scripts": {
-    "build:production": "cd ./frontend && npm install && npm run build:production && rm -rf ./node_modules && cd ../backend && npm install",
-    "start:production": "cd ./backend && npm run start:production"
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "cd backend && npm start",
+    "start:dev": "concurrently \"cd backend && npm run watch\" \"cd frontend && npm start\"",
+    "install": "cd backend && npm i && cd ../frontend && npm i",
+    "seed": "cd backend && npm run seed",
+    "heroku-postbuild": "cd frontend && npm run build"
+  },
+  "dependencies": {
+    "concurrently": "^5.3.0",
+    "if-env": "^1.0.4"
   }
 }
