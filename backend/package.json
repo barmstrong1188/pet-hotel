@@ -1,13 +1,12 @@
 {
   "name": "app-backend",
-  "description": "Backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=localhost nodemon ./server.js",
+    "start": "node server.js",
     "watch": "nodemon",
-    "start:development": "cross-env NODE_ENV=development nodemon ./server.js",
-    "start:production": "cross-env NODE_ENV=production nodemon ./server.js",
-    "test": "nodemon --exec 'cross-env NODE_ENV=test mocha ./src/**/*.test.js --exit || exit 1'",
-    "mongod": "run-rs -v 4.0.0 --shell"
+    "seed": "node config/seeds.js"
   },
   "dependencies": {
     "apollo-server-express": "^2.18.2",
