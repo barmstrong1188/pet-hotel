@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { unregister } from 'registerServiceWorker';
 import SettingsService from 'modules/settings/settingsService';
+// @ts-ignore
 import { i18n } from 'i18n';
 
 (async function() {
