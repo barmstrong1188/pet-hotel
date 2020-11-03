@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "pet-hotel",
   "version": "1.0.0",
   "scripts": {
@@ -29,4 +30,26 @@
     "url": "https://github.com/barmstrong1188/pet-hotel/issues"
   },
   "homepage": "https://github.com/barmstrong1188/pet-hotel#readme"
+=======
+  "name": "app",
+  "version": "1.0.0",
+  "main": "server/server.js",
+  "engines": {
+    "node": "12.18.3",
+    "npm": "6.14.6"
+  },
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "cd backend && npm start",
+    "start:dev": "concurrently \"cd backend && npm run watch\" \"cd frontend && npm start\"",
+    "install": "cd backend && npm i && cd ../frontend && npm i",
+    "seed": "cd backend && npm run seed",
+    "heroku-postbuild": "cd frontend && npm run build"
+  },
+  "dependencies": {
+    "concurrently": "^5.3.0",
+    "cross-env": "^7.0.2",
+    "if-env": "^1.0.4"
+  }
+>>>>>>> 4d90a4a6e3529d0a75c32210b6ad45d460861753
 }
