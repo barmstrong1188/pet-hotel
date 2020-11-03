@@ -1,8 +1,32 @@
 {
-  "name": "app",
-  "version": "0.0.0",
+  "name": "pet-hotel",
+  "version": "1.0.0",
   "scripts": {
     "build:production": "cd ./frontend && npm install && npm run build:production && rm -rf ./node_modules && cd ../backend && npm install",
     "start:production": "cd ./backend && npm run start:production"
-  }
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.3",
+    "express": "^4.17.1",
+    "heroku": "^7.47.0",
+    "http-server": "^0.12.3",
+    "node": "^15.0.1",
+    "start": "^5.1.0"
+  },
+  "description": "Visit https://scaffoldhub.io/react-bootstrap-mongodb for docs/instructions.\r Version: 1.7.6",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/barmstrong1188/pet-hotel.git"
+  },
+  "keywords": [
+    "hotel"
+  ],
+  "author": "Zac",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/barmstrong1188/pet-hotel/issues"
+  },
+  "homepage": "https://github.com/barmstrong1188/pet-hotel#readme"
 }
