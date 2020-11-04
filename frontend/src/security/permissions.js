@@ -6,18 +6,12 @@ class Permissions {
     return {
       iamEdit: {
         id: 'iamEdit',
-        allowedRoles: [
-          roles.manager,
-          roles.employee,
-        ],
+        allowedRoles: [roles.manager, roles.employee],
         allowedStorageFolders: ['user'],
       },
       iamCreate: {
         id: 'iamCreate',
-        allowedRoles: [
-          roles.manager,
-          roles.employee,
-        ],
+        allowedRoles: [roles.manager, roles.employee],
       },
       iamImport: {
         id: 'iamImport',
@@ -33,10 +27,7 @@ class Permissions {
       },
       iamUserAutocomplete: {
         id: 'iamUserAutocomplete',
-        allowedRoles: [
-          roles.manager,
-          roles.employee,
-        ],
+        allowedRoles: [roles.manager, roles.employee],
       },
       auditLogRead: {
         id: 'auditLogRead',
@@ -48,17 +39,14 @@ class Permissions {
       },
       petImport: {
         id: 'petImport',
-        allowedRoles: [
-          roles.manager,
-          roles.employee,
-        ],
+        allowedRoles: [roles.manager, roles.employee],
       },
       petCreate: {
         id: 'petCreate',
         allowedRoles: [
           roles.manager,
           roles.employee,
-          roles.petOwner
+          roles.petOwner,
         ],
         allowedStorageFolders: ['pet'],
       },
@@ -67,15 +55,13 @@ class Permissions {
         allowedRoles: [
           roles.manager,
           roles.employee,
-          roles.petOwner
+          roles.petOwner,
         ],
         allowedStorageFolders: ['pet'],
       },
       petDestroy: {
         id: 'petDestroy',
-        allowedRoles: [
-          roles.manager
-        ],
+        allowedRoles: [roles.manager],
         allowedStorageFolders: ['pet'],
       },
       petRead: {
@@ -97,16 +83,14 @@ class Permissions {
 
       bookingImport: {
         id: 'bookingImport',
-        allowedRoles: [
-          roles.manager,
-        ],
+        allowedRoles: [roles.manager],
       },
       bookingCreate: {
         id: 'bookingCreate',
         allowedRoles: [
           roles.manager,
           roles.employee,
-          roles.petOwner
+          roles.petOwner,
         ],
         allowedStorageFolders: ['booking'],
       },
@@ -115,7 +99,7 @@ class Permissions {
         allowedRoles: [
           roles.manager,
           roles.employee,
-          roles.petOwner
+          roles.petOwner,
         ],
         allowedStorageFolders: ['booking'],
       },
@@ -129,7 +113,7 @@ class Permissions {
         allowedRoles: [
           roles.manager,
           roles.employee,
-          roles.petOwner
+          roles.petOwner,
         ],
       },
       bookingAutocomplete: {
@@ -137,7 +121,7 @@ class Permissions {
         allowedRoles: [
           roles.manager,
           roles.employee,
-          roles.petOwner
+          roles.petOwner,
         ],
       },
     };

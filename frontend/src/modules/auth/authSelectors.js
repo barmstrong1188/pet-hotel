@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import PermissionChecker from './permissionChecker';
+import PermissionChecker from 'modules/auth/permissionChecker';
 import Roles from 'security/roles';
 
 const selectRaw = (state) => state.auth;
@@ -56,19 +56,9 @@ const selectLoadingEmailConfirmation = createSelector(
   (auth) => !!auth.loadingEmailConfirmation,
 );
 
-const selectLoadingPasswordResetEmail = createSelector(
-  [selectRaw],
-  (auth) => !!auth.loadingPasswordResetEmail,
-);
-
 const selectLoadingPasswordReset = createSelector(
   [selectRaw],
   (auth) => !!auth.loadingPasswordReset,
-);
-
-const selectLoadingVerifyEmail = createSelector(
-  [selectRaw],
-  (auth) => !!auth.loadingVerifyEmail,
 );
 
 const selectLoadingUpdateProfile = createSelector(
@@ -117,39 +107,39 @@ const selectCurrentUserAvatar = createSelector(
 );
 
 const selectCurrentUserIsPetOwner = createSelector(
-  [selectCurrentUser], 
+  [selectCurrentUser],
   (currentUser) => {
-  return !new PermissionChecker(
-    currentUser,
-  ).rolesMatchOneOf([
-    Roles.values.manager,
-    Roles.values.employee,
-  ]);
-},
+    return !new PermissionChecker(
+      currentUser,
+    ).rolesMatchOneOf([
+      Roles.values.manager,
+      Roles.values.employee,
+    ]);
+  },
 );
 
 const selectCurrentUserIsManager = createSelector(
-  [selectCurrentUser], 
+  [selectCurrentUser],
   (currentUser) => {
-  return new PermissionChecker(
-    currentUser,
-  ).rolesMatchOneOf(Roles.values.manager);
- },
+    return new PermissionChecker(
+      currentUser,
+    ).rolesMatchOneOf(Roles.values.manager);
+  },
 );
 
 const selectCurrentUserIsEmployee = createSelector(
-  [selectCurrentUser,selectCurrentUserIsManager], 
+  [selectCurrentUser, selectCurrentUserIsManager],
   (currentUser, isManager) => {
     const isEmployee = new PermissionChecker(
-    currentUser,
-  ).rolesMatchOneOf(Roles.values.employee);
+      currentUser,
+    ).rolesMatchOneOf(Roles.values.employee);
 
-  return isEmployee && !isManager;
- },
+    return !isManager && isEmployee;
+  },
 );
 
 const selectors = {
-  selectLoadingPasswordResetEmail,
+  selectLoadingPasswordReset,
   selectLoadingEmailConfirmation,
   selectLoadingInit,
   selectLoadingUpdateProfile,
@@ -165,11 +155,9 @@ const selectors = {
   selectRaw,
   selectCurrentUserNameOrEmailPrefix,
   selectCurrentUserAvatar,
-  selectLoadingPasswordReset,
-  selectLoadingVerifyEmail,
   selectCurrentUserIsPetOwner,
   selectCurrentUserIsManager,
-  selectCurrentUserIsEmployee
+  selectCurrentUserIsEmployee,
 };
 
 export default selectors;
