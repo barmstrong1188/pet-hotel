@@ -4,7 +4,7 @@ const CURRENT_USER = {
   id: 1,
   fullName: 'John',
   email: 'john@test.test',
-  roles: [Roles.values.owner],
+  roles: [Roles.values.manager]
 };
 
 const CREDENTIALS = {

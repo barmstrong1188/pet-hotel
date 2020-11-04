@@ -92,8 +92,8 @@ module.exports = class IamEditor {
   /**
    * Checks if the user is removing it's own owner role
    */
-  async _isRemovingOwnOwnerRole() {
-    if (this._roles.includes(Roles.values.owner)) {
+  async _isRemovingOwnManagerRole() {
+    if (this._roles.includes(Roles.values.manager)) {
       return false;
     }
 
@@ -105,7 +105,7 @@ module.exports = class IamEditor {
       this.currentUser.id,
     );
 
-    return currentUserRoles.includes(Roles.values.owner);
+    return currentUserRoles.includes(Roles.values.manager);
   }
 
   async _validate() {
