@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import selectors from 'modules/booking/bookingSelectors';
+import bookingModel from 'modules/booking/bookingModel';
 
 class BookingViewItem extends Component {
   valueAsArray = () => {
@@ -24,7 +25,7 @@ class BookingViewItem extends Component {
       return (
         <div key={record.id}>
           <Link className="btn btn-link" to={`/booking/${record.id}`}>
-            {record['id']}
+          {this.label(record)}
           </Link>
         </div>
       );
@@ -32,9 +33,23 @@ class BookingViewItem extends Component {
 
     return (
       <div key={record.id}>
-        {record['id']}
+        {this.label(record)}
       </div>
     );
+  };
+
+  label = (record) => {
+    const arrival = bookingModel.fields.arrival.forView(
+      record.arrival,
+    );
+    const departure = bookingModel.fields.departure.forView(
+      record.departure,
+    );
+    const status = bookingModel.fields.status.forView(
+      record.status,
+    );
+
+    return `${arrival} - ${departure} (${status})`
   };
 
   render() {
