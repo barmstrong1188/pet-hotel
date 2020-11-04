@@ -63,7 +63,7 @@ const privateRoutes = [
   },
 
   {
-    path: '/audit-logs',
+    path: '/history',
     icon: 'fas fa-history',
     label: i18n('auditLog.menu'),
     loader: () => import('view/auditLog/AuditLogPage'),
@@ -85,7 +85,7 @@ const privateRoutes = [
     loader: () => import('view/pet/list/PetListPage'),
     permissionRequired: permissions.petRead,
     exact: true,
-    icon: 'fas fa-chevron-right',
+    icon: 'fas fa-paw',
     label: i18n('entities.pet.menu'),
     menu: true,
   },
@@ -124,7 +124,7 @@ const privateRoutes = [
     loader: () => import('view/booking/list/BookingListPage'),
     permissionRequired: permissions.bookingRead,
     exact: true,
-    icon: 'fas fa-chevron-right',
+    icon: 'fas fa-book',
     label: i18n('entities.booking.menu'),
     menu: true,
   },

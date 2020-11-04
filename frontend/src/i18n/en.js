@@ -244,8 +244,8 @@ const en = {
   },
 
   iam: {
-    title: 'Identity and Access Management',
-    menu: 'IAM',
+    title: 'Users',
+    menu: 'Users',
     disable: 'Disable',
     disabled: 'Disabled',
     enabled: 'Enabled',
@@ -328,8 +328,8 @@ const en = {
   },
 
   auditLog: {
-    menu: 'Audit Logs',
-    title: 'Audit Logs',
+    menu: 'History',
+    title: 'History',
     exporterFileName: 'audit_log_export',
     entityNamesHint:
       'Separate multiple entities using the comma character.',
