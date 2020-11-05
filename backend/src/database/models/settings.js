@@ -8,6 +8,12 @@ const Schema = database.Schema;
 const SettingsSchema = new Schema(
   {
     theme: { type: String },
+    dailyFee: {
+      type: DataTypes.DECIMAL(24, 2)
+    },
+    capacity: {
+      type: DataTypes.INTEGER,
+    },
     createdBy: {
       type: Schema.Types.ObjectId,
       ref: 'user',
