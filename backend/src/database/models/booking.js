@@ -1,6 +1,7 @@
 const database = require('../database');
 const Schema = database.Schema;
 const { FileSchema } = require('./file');
+const bookingStatus = require('../../enumerators/bookingStatus');
 
 /**
  * Booking database schema.
@@ -39,10 +40,10 @@ const BookingSchema = new Schema(
       type: String,
       required: true,
       enum: [
-        "booked",
-        "progress",
-        "cancelled",
-        "completed"
+        bookingStatus.BOOKED,
+        bookingStatus.PROGRESS,
+        bookingStatus.CANCELLED,
+        bookingStatus.COMPLETED
       ],
     },
     cancellationNotes: {

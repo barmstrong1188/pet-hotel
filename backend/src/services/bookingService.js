@@ -1,4 +1,5 @@
 const BookingRepository = require('../database/repositories/bookingRepository');
+const PetRepository = require('../database/repositories/petRepository');
 const ValidationError = require('../errors/validationError');
 const MongooseRepository = require('../database/repositories/mongooseRepository');
 
@@ -8,6 +9,7 @@ const MongooseRepository = require('../database/repositories/mongooseRepository'
 module.exports = class BookingService {
   constructor({ currentUser, language }) {
     this.repository = new BookingRepository();
+    this.petRepository = new PetRepository();
     this.currentUser = currentUser;
     this.language = language;
   }
@@ -41,6 +43,15 @@ module.exports = class BookingService {
    * @param {*} id
    * @param {*} data
    */
+
+  async _validatePetandOwnerMatch(data) {
+    const pet = await this.petRepository.findById(data.pet);
+
+    if (pet.owner.id !== data.owner) {
+      throw new ForbiddenError(this.language);
+    }
+  }
+
   async update(id, data) {
     const session = await MongooseRepository.createSession();
 
