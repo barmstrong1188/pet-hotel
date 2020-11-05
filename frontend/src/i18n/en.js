@@ -354,6 +354,8 @@ const en = {
     },
     fields: {
       theme: 'Theme',
+      dailyFee: 'Daily Fee',
+      capacity: 'Capacity'
     },
     colors: {
       default: 'Dark',

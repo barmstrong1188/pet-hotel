@@ -20,6 +20,8 @@ export default class SettingsService {
         query settingsFind {
           settingsFind {
             theme
+            dailyFee
+            capacity
           }
         }
       `,

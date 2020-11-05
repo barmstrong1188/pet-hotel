@@ -10,11 +10,13 @@ import Spinner from 'view/shared/Spinner';
 import FormSchema from 'view/shared/form/formSchema';
 import SelectFormItem from 'view/shared/form/items/SelectFormItem';
 import ButtonIcon from 'view/shared/ButtonIcon';
+import InputFormItem from 'view/shared/form/items/InputFormItem'
+import InputNumberFormItem from 'view/shared/form/items/InputNumberFormItem';
 
 const { fields } = model;
 
 class SettingsForm extends Component {
-  schema = new FormSchema(null, [fields.theme]);
+  schema = new FormSchema(null, [fields.theme, fields.dailyFee, fields.capacity]);
 
   componentDidMount() {
     const { dispatch } = this.props;
@@ -44,6 +46,17 @@ class SettingsForm extends Component {
           render={(form) => {
             return (
               <form onSubmit={form.handleSubmit}>
+                 <InputFormItem
+                  name={fields.dailyFee.name}
+                  label={fields.dailyFee.label}
+                  required={fields.dailyFee.required}
+                />
+                  <InputNumberFormItem
+                  name={fields.capacity.name}
+                  label={fields.capacity.label}
+                  required={fields.capacity.required}
+                />
+
                 <SelectFormItem
                   name={fields.theme.name}
                   label={fields.theme.label}

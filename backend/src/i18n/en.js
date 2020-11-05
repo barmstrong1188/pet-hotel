@@ -4,7 +4,7 @@
 
 const en = {
   app: {
-    title: 'Application',
+    title: 'Pet Hotel',
   },
 
   auth: {
