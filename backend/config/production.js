@@ -6,18 +6,18 @@ module.exports = {
      * Connection URL for Mongoose
      * See https://mongoosejs.com/docs/index.html
      */
-    connection: 'mongodb://mongo:27017/production',
+    connection: 'mongodb://sysadmin:OJCLzl3eSsuirN1g@cluster0-shard-00-00.fbcy3.mongodb.net:27017,cluster0-shard-00-01.fbcy3.mongodb.net:27017,cluster0-shard-00-02.fbcy3.mongodb.net:27017/production?ssl=true&replicaSet=atlas-8u25h0-shard-0&authSource=admin&retryWrites=true&w=majority',
     /**
      * In case you want to use ACID transactions, change this flag to true.
      * See: https://mongoosejs.com/docs/transactions.html
      */
-    transactions: false,
+    transactions: true,
   },
 
   /**
    * Secret used to Sign the JWT (Authentication) tokens.
    */
-  authJwtSecret: '<place a generated random value here>',
+  authJwtSecret: 'shh this is a secret',
 
   /**
    * Directory where uploaded files are saved.

@@ -1,13 +1,20 @@
 {
-  "name": "app-backend",
+  "name": "the-pet-hotel-backend",
   "version": "1.0.0",
   "description": "Backend",
   "scripts": {
-    "start": "cross-env NODE_ENV=localhost nodemon ./server.js",
+    "start": "cross-env NODE_ENV=production nodemon ./server.js",
     "watch": "nodemon",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "logs": "firebase functions:log",
     "start:development": "cross-env NODE_ENV=development nodemon ./server.js",
     "start:production": "cross-env NODE_ENV=production nodemon ./server.js",
     "test": "nodemon --exec 'cross-env NODE_ENV=test mocha ./src/**/*.test.js --exit || exit 1'",
+    "deploy:appengine:development": "gcloud app deploy app-engine.development.yaml --project the-pet-hotel",
+    "predeploy:production": "firebase use production && firebase functions:config:set env.value=\"production\"",
+    "deploy:production": "firebase deploy --only functions",
+    "deploy:appengine:production": "gcloud app deploy app-engine.production.yaml --project the-pet-hotel",
     "mongod": "run-rs -v 4.0.0 --shell"
   },
   "dependencies": {

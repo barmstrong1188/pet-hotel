@@ -1,5 +1,5 @@
-const backendUrl = `/api`;
+const backendUrl = `mongodb://localhost/the-pet-hotel`;
 
 export default {
-  backendUrl,
+  backendUrl, 
 };

@@ -8,7 +8,7 @@ module.exports = {
      * Connection URL for Mongoose
      * See https://mongoosejs.com/docs/index.html
      */
-    connection: 'mongodb://localhost:27017/development',
+    connection: 'mongodb://sysadmin:OJCLzl3eSsuirN1g@cluster0-shard-00-00.fbcy3.mongodb.net:27017,cluster0-shard-00-01.fbcy3.mongodb.net:27017,cluster0-shard-00-02.fbcy3.mongodb.net:27017/production?ssl=true&replicaSet=atlas-8u25h0-shard-0&authSource=admin&retryWrites=true&w=majority',
     transactions: false,
 
     /**
